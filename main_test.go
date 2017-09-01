@@ -19,6 +19,12 @@ func TestIsConjuredItem(t *testing.T) {
 	if conjuredItem.quality != 8 {
 		t.Error("Conjured items should degrade twice as fast...")
 	}
+
+	// a conjured item with a sellIn of < 1 should degrade by a factor of 4
+	reallyOldConjuredItem := Item{"Conjured dwarven curass", -10, 5}
+	if updateQuality(&reallyOldConjuredItem); reallyOldConjuredItem.quality != 1 {
+		t.Error("Conjured items with a sellIn of < 1 should degrade by a factor of 4")
+	}
 }
 
 func TestUpdateSellInBasic(t *testing.T) {

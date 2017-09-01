@@ -52,26 +52,23 @@ func updateItem(i *Item) {
 }
 
 func updateQuality(i *Item) {
-	entropy := 2
 	if i.quality > 1 && i.quality <= 50 {
-		if i.sellIn < 1 || isConjuredItem(i) {
-			// Aged Brie is the only item whose
-			// quality improves with age. Like fine wine.
-			if i.name == "Aged Brie" {
-				i.quality++
+		if i.name == "Aged Brie" {
+			i.quality++
+			return
+		}
+
+		if i.sellIn < 1 { // this is it
+			if isConjuredItem(i) {
+				i.quality = i.quality - 4
 			} else {
-				i.quality = i.quality - entropy
+				i.quality = i.quality - 2
 			}
 		} else {
-			// in all other cases, we decrement quality by 1
-			if i.name == "Aged Brie" {
-				i.quality++
+			if isConjuredItem(i) {
+				i.quality = i.quality - 2
 			} else {
-				if isConjuredItem(i) {
-					i.quality = i.quality - 4
-				} else {
-					i.quality--
-				}
+				i.quality--
 			}
 		}
 	}
