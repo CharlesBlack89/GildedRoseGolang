@@ -4,7 +4,11 @@
 version: 2
 jobs:
   build:
+<<<<<<< HEAD
     parallelism: 1
+=======
+    parallelism: 2
+>>>>>>> 344bcfdd24fc39a8ba39a0d560f21255ca96fa00
     docker:
       # specify the version
       - image: circleci/golang:1.8
