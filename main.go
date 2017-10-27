@@ -24,6 +24,7 @@ var items = []Item{
 	Item{"Sulfuras, Hand of Ragnaros", 0, 80},
 	Item{"Backstage passes to a TAFKAL80ETC concert", 15, 20},
 	Item{"Conjured Mana Cake", 3, 6},
+	Item{"Bronze Dagger", 5, 5},
 }
 
 func main() {
